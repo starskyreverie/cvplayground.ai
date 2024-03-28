@@ -1,13 +1,3 @@
-# Rust
-/target
-**/*.rs.bk
-Cargo.lock
-
-# Compiled WebAssembly
-/pkg
-**/*.wasm
-
-# Node modules and package lock files
 node_modules/
 package-lock.json
 yarn.lock

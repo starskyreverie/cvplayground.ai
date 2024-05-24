@@ -46,71 +46,86 @@ class BabyCNN:
 
 It's also helpful to go through the journey of an input image to understand what's going on.
 
-## Journey of an Input Image
+## BabyCNN: Journey of an Input Image
 
-### shape transformations
+This describes the journey of an input image through the BabyCNN model, including the shape transformations and intuitive understanding of each layer.
 
-1. **input image**: 28x28 grayscale image.
-   - **shape**: (28, 28, 1)
-   - **example**: `[[0.5, 0.3, ...], [0.2, 0.6, ...], ...]`
-   - **meaning**: raw pixel values of the grayscale image.
+## Shape Transformations and Visualizations
 
-2. **conv2d layer 1**: 32 filters of size 3x3, stride 1.
-   - **output shape**: (26, 26, 32)
-   - **example**: `[[[0.1, ...], ...], [[0.2, ...], ...], ...]`
-   - **meaning**: feature maps extracted by the first convolutional layer.
+### 1. Input Image: 28x28 Grayscale Image
 
-3. **relu activation**: applied after conv2d layer 1.
-   - **output shape**: (26, 26, 32)
-   - **example**: `[[[0.1, ...], ...], [[0.2, ...], ...], ...]`
-   - **meaning**: feature maps with non-linear activation applied.
+- **Shape**: `(28, 28, 1)`
+- **Description**: The input image is a 28x28 grayscale image where each pixel's intensity ranges from 0 to 1.
+- **Intuition**: This is the raw input data fed into the neural network.
 
-4. **conv2d layer 2**: 64 filters of size 3x3, stride 1.
-   - **output shape**: (24, 24, 64)
-   - **example**: `[[[0.2, ...], ...], [[0.3, ...], ...], ...]`
-   - **meaning**: feature maps extracted by the second convolutional layer.
+### 2. Conv2D Layer 1: 32 Filters of Size 3x3, Stride 1
 
-5. **batch normalization**: applied after conv2d layer 2.
-   - **output shape**: (24, 24, 64)
-   - **example**: `[[[0.1, ...], ...], [[0.2, ...], ...], ...]`
-   - **meaning**: normalized feature maps.
+- **Output Shape**: `(26, 26, 32)`
+- **Description**: The first convolutional layer applies 32 different 3x3 filters to the input image.
+- **Intuition**: This layer extracts basic features like edges and textures from the image.
 
-6. **relu activation**: applied after batch normalization.
-   - **output shape**: (24, 24, 64)
-   - **example**: `[[[0.1, ...], ...], [[0.2, ...], ...], ...]`
-   - **meaning**: normalized feature maps with non-linear activation applied.
+### 3. ReLU Activation: Applied After Conv2D Layer 1
 
-7. **maxpooling2d**: pool size 2x2.
-   - **output shape**: (12, 12, 64)
-   - **example**: `[[[0.3, ...], ...], [[0.4, ...], ...], ...]`
-   - **meaning**: downsampled feature maps.
+- **Output Shape**: `(26, 26, 32)`
+- **Description**: Applies the Rectified Linear Unit (ReLU) activation function to introduce non-linearity.
+- **Intuition**: Helps the model learn complex patterns by applying non-linear activation to the feature maps.
 
-8. **flatten**: flatten the output.
-   - **output shape**: (9216)
-   - **example**: `[0.3, 0.4, ...]`
-   - **meaning**: flattened feature maps.
+### 4. Conv2D Layer 2: 64 Filters of Size 3x3, Stride 1
 
-9. **fully connected layer 1**: 128 neurons.
-   - **output shape**: (128)
-   - **example**: `[0.1, 0.2, ...]`
-   - **meaning**: high-level features.
+- **Output Shape**: `(24, 24, 64)`
+- **Description**: The second convolutional layer applies 64 different 3x3 filters to the output of the first layer.
+- **Intuition**: This layer captures more complex features by combining the basic features extracted by the first layer.
 
-10. **dropout**: applied after fully connected layer 1.
-    - **output shape**: (128)
-    - **example**: `[0.1, 0.0, ...]`
-    - **meaning**: high-level features with dropout applied.
+### 5. Batch Normalization: Applied After Conv2D Layer 2
 
-11. **relu activation**: applied after dropout.
-    - **output shape**: (128)
-    - **example**: `[0.1, 0.2, ...]`
-    - **meaning**: high-level features with non-linear activation applied.
+- **Output Shape**: `(24, 24, 64)`
+- **Description**: Normalizes the feature maps to have zero mean and unit variance.
+- **Intuition**: Stabilizes and speeds up the training process by normalizing the output of the convolutional layer.
 
-12. **fully connected layer 2**: 10 neurons.
-    - **output shape**: (10)
-    - **example**: `[0.1, 0.3, ...]`
-    - **meaning**: logits for each class.
+### 6. ReLU Activation: Applied After Batch Normalization
 
-13. **softmax activation**: applied to get probabilities.
-    - **output shape**: (10)
-    - **example**: `[0.1, 0.7, ...]`
-    - **meaning**: probability distribution over 10 classes.
+- **Output Shape**: `(24, 24, 64)`
+- **Description**: Applies the ReLU activation function again after batch normalization.
+- **Intuition**: Maintains the non-linearity and helps in learning complex patterns.
+
+### 7. MaxPooling2D: Pool Size 2x2
+
+- **Output Shape**: `(12, 12, 64)`
+- **Description**: Applies max pooling with a 2x2 filter and stride of 2 to reduce the spatial dimensions.
+- **Intuition**: Reduces the dimensionality of the feature maps, retaining the most important features while reducing computational complexity.
+
+### 8. Flatten: Flatten the Output
+
+- **Output Shape**: `(9216)`
+- **Description**: Flattens the 3D feature maps into a 1D vector.
+- **Intuition**: Prepares the data for the fully connected layers by converting the 2D feature maps into a 1D vector.
+
+### 9. Fully Connected Layer 1: 128 Neurons
+
+- **Output Shape**: `(128)`
+- **Description**: Applies a fully connected layer with 128 neurons to the flattened vector.
+- **Intuition**: Acts as the brain of the network where most of the learning happens, transforming the high-dimensional data into 128 features.
+
+### 10. Dropout: Applied After Fully Connected Layer 1
+
+- **Output Shape**: `(128)`
+- **Description**: Randomly sets a fraction of the input units to 0 at each update during training time to prevent overfitting.
+- **Intuition**: Improves generalization by preventing the model from relying too much on specific neurons.
+
+### 11. ReLU Activation: Applied After Dropout
+
+- **Output Shape**: `(128)`
+- **Description**: Applies the ReLU activation function again after dropout.
+- **Intuition**: Maintains non-linearity and ensures only active neurons are contributing to the output.
+
+### 12. Fully Connected Layer 2: 10 Neurons
+
+- **Output Shape**: `(10)`
+- **Description**: Applies a fully connected layer with 10 neurons to the output of the previous layer.
+- **Intuition**: Maps the high-level features to the output classes.
+
+### 13. Softmax Activation: Applied to Get Probabilities
+
+- **Output Shape**: `(10)`
+- **Description**: Applies the softmax activation function to get the probability distribution over the 10 classes.
+- **Intuition**: Converts the logits into probabilities, allowing for the final classification decision.

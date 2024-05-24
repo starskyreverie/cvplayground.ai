@@ -2,6 +2,8 @@
 
 `models` contains all the different implementations of BabyCNN. Each folder contains a `README.md` file that describes its implementation.
 
+Training is done on MNIST.
+
 ## Framework-Agnostic Pseudocode for BabyCNN
 
 ```python
@@ -44,4 +46,73 @@ class BabyCNN:
         return x
 ```
 
-Training is generally done on MNIST.
+It's also helpful to go through the journey of an input image to understand what's going on.
+
+## Journey of an Input Image
+
+### shape transformations
+
+1. **input image**: 28x28 grayscale image.
+   - **shape**: (28, 28, 1)
+   - **example**: `[[0.5, 0.3, ...], [0.2, 0.6, ...], ...]`
+   - **meaning**: raw pixel values of the grayscale image.
+
+2. **conv2d layer 1**: 32 filters of size 3x3, stride 1.
+   - **output shape**: (26, 26, 32)
+   - **example**: `[[[0.1, ...], ...], [[0.2, ...], ...], ...]`
+   - **meaning**: feature maps extracted by the first convolutional layer.
+
+3. **relu activation**: applied after conv2d layer 1.
+   - **output shape**: (26, 26, 32)
+   - **example**: `[[[0.1, ...], ...], [[0.2, ...], ...], ...]`
+   - **meaning**: feature maps with non-linear activation applied.
+
+4. **conv2d layer 2**: 64 filters of size 3x3, stride 1.
+   - **output shape**: (24, 24, 64)
+   - **example**: `[[[0.2, ...], ...], [[0.3, ...], ...], ...]`
+   - **meaning**: feature maps extracted by the second convolutional layer.
+
+5. **batch normalization**: applied after conv2d layer 2.
+   - **output shape**: (24, 24, 64)
+   - **example**: `[[[0.1, ...], ...], [[0.2, ...], ...], ...]`
+   - **meaning**: normalized feature maps.
+
+6. **relu activation**: applied after batch normalization.
+   - **output shape**: (24, 24, 64)
+   - **example**: `[[[0.1, ...], ...], [[0.2, ...], ...], ...]`
+   - **meaning**: normalized feature maps with non-linear activation applied.
+
+7. **maxpooling2d**: pool size 2x2.
+   - **output shape**: (12, 12, 64)
+   - **example**: `[[[0.3, ...], ...], [[0.4, ...], ...], ...]`
+   - **meaning**: downsampled feature maps.
+
+8. **flatten**: flatten the output.
+   - **output shape**: (9216)
+   - **example**: `[0.3, 0.4, ...]`
+   - **meaning**: flattened feature maps.
+
+9. **fully connected layer 1**: 128 neurons.
+   - **output shape**: (128)
+   - **example**: `[0.1, 0.2, ...]`
+   - **meaning**: high-level features.
+
+10. **dropout**: applied after fully connected layer 1.
+    - **output shape**: (128)
+    - **example**: `[0.1, 0.0, ...]`
+    - **meaning**: high-level features with dropout applied.
+
+11. **relu activation**: applied after dropout.
+    - **output shape**: (128)
+    - **example**: `[0.1, 0.2, ...]`
+    - **meaning**: high-level features with non-linear activation applied.
+
+12. **fully connected layer 2**: 10 neurons.
+    - **output shape**: (10)
+    - **example**: `[0.1, 0.3, ...]`
+    - **meaning**: logits for each class.
+
+13. **softmax activation**: applied to get probabilities.
+    - **output shape**: (10)
+    - **example**: `[0.1, 0.7, ...]`
+    - **meaning**: probability distribution over 10 classes.

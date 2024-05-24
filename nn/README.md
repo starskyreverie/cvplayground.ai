@@ -1,8 +1,6 @@
-# Models
+# nn
 
-`models` contains all the different implementations of BabyCNN. Each folder contains a `README.md` file that describes its implementation.
-
-Training is done on MNIST.
+`nn/` contains all the different neural network implementations of BabyCNN. Each folder contains a `README.md` file that describes its implementation. Training and inference is done on [MNIST](https://git-disl.github.io/GTDLBench/datasets/mnist_datasets/) and [Fashion MNIST](https://github.com/zalandoresearch/fashion-mnist).
 
 ## Framework-Agnostic Pseudocode for BabyCNN
 

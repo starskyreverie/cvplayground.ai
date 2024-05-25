@@ -129,3 +129,16 @@ This describes the journey of an input image through the BabyCNN model, includin
 - **Output Shape**: `(10)`
 - **Description**: Applies the softmax activation function to get the probability distribution over the 10 classes.
 - **Intuition**: Converts the logits into probabilities, allowing for the final classification decision.
+
+## Frameworks
+
+Within each folder, you'll find a README that describes the implementation, alongside a `train.py` script for training the model, and a `infer.py` script for inference.
+
+- `/pytorch`: PyTorch implementation of BabyCNN.
+- `/jax`: JAX implementation of BabyCNN.
+- `/tf2`: TensorFlow 2 implementation of BabyCNN.
+- `/c`: C implementation of BabyCNN, using a CPU.
+- `/cuda`: CUDA implementation of BabyCNN, using C++ and a GPU.
+- `/cutlass`: CUDA implementation of BabyCNN, using C++ and CUTLASS (a kernel template library built on CUDA).
+- `/triton`: Triton implementation of BabyCNN, using Python and a GPU.
+- `/mlx`: MLX implementation of BabyCNN, using Apple Silicon.

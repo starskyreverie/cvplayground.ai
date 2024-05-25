@@ -6,7 +6,7 @@
 
 CVPlayground is designed to explore various methods of defining, training, and inferring computer vision models. The core motivation is to experiment with different frameworks and hardware implementations with BabyCNN.
 
-Check out the README in `nn/` to learn more about `BabyCNN` and the different ways we implement it.
+Check out the README in `nn/` to learn more about `BabyCNN` and the different ways it's implemented.
 
 ## Motivation
 
@@ -20,4 +20,4 @@ The project aims to implement BabyCNN using various methods:
 
 ## Future Work
 
-In the future, I have plans to extend the project to work at the scale of [DINOv2](https://arxiv.org/pdf/2304.07193), but this is very non-trivial.
+In the future, there are plans to extend the project to work at the scale of [DINOv2](https://arxiv.org/pdf/2304.07193), but this is very non-trivial.

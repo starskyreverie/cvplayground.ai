@@ -2,6 +2,9 @@ node_modules/
 package-lock.json
 yarn.lock
 
+# MNIST dataset
+mnist/
+
 # Python
 __pycache__/
 *.py[cod]
@@ -16,6 +19,7 @@ dist/
 *.egg-info/
 .eggs/
 pip-log.txt
+.ruff_cache/
 pip-delete-this-directory.txt
 
 # Jupyter Notebook
@@ -42,3 +46,17 @@ $RECYCLE.BIN/
 
 # Virtual Environment
 .env
+
+# Checkpoints
+*.pth
+*.pt
+*.ckpt
+*.pkl
+*.h5
+*.hdf5
+*.onnx
+*.pb
+*.pbtxt
+*.tflite
+*.mlmodel
+*.mlmodelc

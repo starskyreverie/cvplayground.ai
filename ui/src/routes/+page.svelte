@@ -6,9 +6,8 @@
 
 <h2>Computer Vision Playground</h2>
 <div>
-	Still a work in progress. I'm building a web app that will let you play with computer vision
-	models and state-of-the-art research techniques. If you want to contribute, check out the 
-    <a href="https://github.com/pq43/cvplayground">GitHub</a>!
+	Still a work in progress. If you want to contribute, check out the
+	<a href="https://github.com/pq43/cvplayground">GitHub</a>!
 </div>
 
 <style>

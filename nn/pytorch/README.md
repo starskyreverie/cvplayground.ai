@@ -2,7 +2,7 @@
 
 ## Overview
 
-This folder contains the implementation of BabyCNN using pytorch.
+This folder contains the implementation of BabyCNN using pytorch. Besides the main scripts, there's also `distributed/`, and `/compression` folders that contain scripts for distributed training and compression (pruning and quantization).
 
 ## Setup Instructions
 

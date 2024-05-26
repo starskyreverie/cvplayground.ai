@@ -4,9 +4,9 @@
 
 ## Overview
 
-CVPlayground is designed to explore various methods of defining, training, and inferring computer vision models. The core motivation is to experiment with different frameworks and hardware implementations with BabyCNN.
+CVPlayground is designed to explore various methods of defining, training, and inferring computer vision models. The core motivation is to experiment with different frameworks and hardware implementations.
 
-Check out the README in `nn/` to learn more about `BabyCNN` and the different ways it's implemented.
+Check out the README in `nn/` to learn more about the model being studied, `BabyCNN`, and the different ways it's implemented.
 
 ## Motivation
 

@@ -167,7 +167,7 @@ Within each folder, you'll find a README that describes the implementation, alon
 
 ### Implementations by hand, without popular frameworks
 
-- `/numpy`: NumPy implementation of BabyCNN, lots of stuff from scratch here. I recommend reading this implementation before 
+- `/numpy`: NumPy implementation of BabyCNN, lots of stuff from scratch here. I recommend reading this implementation before the following.
 - `/cuda`: CUDA implementation of BabyCNN, using C++ and a GPU.
 - `/c`: C implementation of BabyCNN, using a CPU.
 - `/cutlass`: CUDA implementation of BabyCNN, using C++ and CUTLASS (a kernel template library built on CUDA).

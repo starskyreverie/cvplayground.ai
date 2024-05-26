@@ -8,6 +8,7 @@ def train(model, train_loader, test_loader, num_epochs=10, learning_rate=0.01):
         print(f"Epoch {epoch + 1}/{num_epochs}")
         train_loss = 0
         for i, (X_batch, y_batch) in enumerate(train_loader):
+            print(f"iteration {i}")
             # Reshape X_batch to (batch_size, channels, height, width)
             X_batch = X_batch.transpose(0, 3, 1, 2)
             y_batch_indices = np.argmax(y_batch, axis=1)  # get indices of true labels

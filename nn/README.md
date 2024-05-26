@@ -158,12 +158,17 @@ This describes the journey of an input image through the BabyCNN model, includin
 
 Within each folder, you'll find a README that describes the implementation, alongside a `train.py` script for training the model.
 
+### Using popular frameworks (i.e., not by hand)
+
 - `/pytorch`: PyTorch implementation of BabyCNN.
 - `/jax`: JAX implementation of BabyCNN.
-- `/numpy`: NumPy implementation of BabyCNN, lots of stuff from scratch here.
 - `/tf2`: TensorFlow 2 implementation of BabyCNN.
-- `/c`: C implementation of BabyCNN, using a CPU.
+- `/mlx`: MLX implementation of BabyCNN, using Apple Silicon.
+
+### Implementations by hand, without popular frameworks
+
+- `/numpy`: NumPy implementation of BabyCNN, lots of stuff from scratch here. I recommend reading this implementation before 
 - `/cuda`: CUDA implementation of BabyCNN, using C++ and a GPU.
+- `/c`: C implementation of BabyCNN, using a CPU.
 - `/cutlass`: CUDA implementation of BabyCNN, using C++ and CUTLASS (a kernel template library built on CUDA).
 - `/triton`: Triton implementation of BabyCNN, using Python and a GPU.
-- `/mlx`: MLX implementation of BabyCNN, using Apple Silicon.

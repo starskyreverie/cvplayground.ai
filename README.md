@@ -12,11 +12,10 @@ Check out the README in `nn/` to learn more about `BabyCNN` and the different wa
 
 The project aims to implement BabyCNN using various methods:
 
-- High-level frameworks like PyTorch, JAX, and TensorFlow.
-- Low-level implementations in C and CUDA.
+- High-level frameworks like PyTorch, JAX, and TensorFlow, and MLX.
+- Low-level implementations in C and CUDA (and numpy, for an intermediate abstraction level).
 - Custom CUDA kernels.
 - Advanced optimization techniques using Triton and CUTLASS.
-- Execution on different hardware including ASICs, GPUs, and ML accelerators like MLX.
 
 ## Future Work
 

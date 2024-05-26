@@ -52,6 +52,7 @@ class ConvLayer:
         out_channels, _, kernel_size, _ = self.filters.shape
         output_height = (input_height - kernel_size) // self.stride + 1
         output_width = (input_width - kernel_size) // self.stride + 1
+
         output = np.zeros((batch_size, out_channels, output_height, output_width))
 
         for i in range(batch_size):

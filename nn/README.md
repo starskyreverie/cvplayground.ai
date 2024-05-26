@@ -160,6 +160,7 @@ Within each folder, you'll find a README that describes the implementation, alon
 
 - `/pytorch`: PyTorch implementation of BabyCNN.
 - `/jax`: JAX implementation of BabyCNN.
+- `/numpy`: NumPy implementation of BabyCNN, lots of stuff from scratch here.
 - `/tf2`: TensorFlow 2 implementation of BabyCNN.
 - `/c`: C implementation of BabyCNN, using a CPU.
 - `/cuda`: CUDA implementation of BabyCNN, using C++ and a GPU.
